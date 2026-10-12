@@ -1,12 +1,10 @@
-/* Podstawowe CSS: stała szerokość, bez Flexbox, Grid i media queries. */
-* {
-    box-sizing: border-box;
-}
+/* Podstawowe style CSS. Stała szerokość strony, bez Flexbox i Grid. */
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
-    background: #eef2f5;
-    color: #25313d;
+    background: #f3f1ed;
+    color: #35312e;
     font-family: Arial, sans-serif;
     font-size: 16px;
     line-height: 1.6;
@@ -18,93 +16,60 @@ body {
 }
 
 header {
-    padding: 23px 0 18px;
-    background: #162a43;
-    color: #ffffff;
+    padding: 22px 0 18px;
+    background: #ffffff;
+    border-top: 5px solid #795347;
 }
 
 .logo {
-    color: #ffffff;
-    font-size: 32px;
+    color: #67463c;
+    font-size: 28px;
     font-weight: bold;
-    letter-spacing: -1px;
     text-decoration: none;
 }
 
-.logo-dot {
-    color: #bd503c;
-}
-
-.slogan {
-    margin: 0;
-    font-size: 14px;
-}
+header p { margin: 3px 0 0; font-size: 14px; }
 
 nav {
-    background: #ffffff;
-    border-top: 1px solid #c7d2df;
-    border-bottom: 1px solid #c7d2df;
+    background: #e8e3dc;
+    border-top: 1px solid #d1c9bf;
+    border-bottom: 1px solid #d1c9bf;
 }
 
-nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-nav li {
-    display: inline-block;
-    margin-right: 30px;
-}
+nav ul { margin: 0; padding: 0; list-style: none; }
+nav li { display: inline-block; margin-right: 28px; }
 
 nav a {
     display: inline-block;
-    padding: 12px 0 9px;
+    padding: 11px 0 8px;
+    color: #35312e;
     border-bottom: 3px solid transparent;
-    color: #25313d;
+    font-size: 15px;
     text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
 }
 
-nav a[aria-current="page"], nav a:hover {
-    border-bottom-color: #bd503c;
+nav a[aria-current="page"] {
+    border-bottom-color: #795347;
+    font-weight: bold;
 }
 
 .banner {
-    margin: 30px 0;
-    padding: 26px 34px 28px;
-    background: #162a43;
-    color: #ffffff;
-    border-left: 6px solid #eead4a;
+    margin: 26px 0;
+    padding: 22px 26px;
+    background: #e8e3dc;
+    border-left: 4px solid #795347;
 }
 
-.eyebrow {
-    margin: 0 0 12px;
-    color: #ffd285;
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
+h1 { margin: 0 0 10px; font-size: 30px; line-height: 1.25; }
+.banner p { margin: 0; }
+h2 { margin: 0 0 15px; font-size: 22px; line-height: 1.35; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p { margin: 0 0 16px; }
+a { color: #754b3c; }
+a:hover { text-decoration: underline; }
+a:focus-visible { outline: 2px solid #795347; outline-offset: 3px; }
 
-h1 {
-    margin: 0 0 14px;
-    font-family: Georgia, serif;
-    font-size: 48px;
-    font-weight: normal;
-    line-height: 1.1;
-}
-
-.banner > p:last-child {
-    width: 780px;
-    margin: 0;
-}
-
-.banner-small h1 {
-    font-size: 40px;
-}
-
-/* Układ tabelaryczny CSS utrzymuje trzy kolumny w jednym rzędzie. */
+/* Trzy równe kolumny w jednym rzędzie; układ zachowany z poprzedniej wersji. */
 .kolumny {
     display: table;
     table-layout: fixed;
@@ -113,9 +78,7 @@ h1 {
     border-spacing: 16px 0;
 }
 
-.wiersz {
-    display: table-row;
-}
+.wiersz { display: table-row; }
 
 .kolumna {
     display: table-cell;
@@ -123,127 +86,42 @@ h1 {
     vertical-align: top;
     padding: 24px;
     background: #ffffff;
-    border: 1px solid #cfdae5;
-    border-top: 5px solid #cfdae5;
+    border: 1px solid #d1c9bf;
 }
 
-.slonce { border-top-color: #d58a25; }
-.wiatr { border-top-color: #128078; }
-.woda { border-top-color: #326ba8; }
+.kolumna p { font-size: 15px; }
+.kolumna p:last-child { margin-bottom: 0; }
 
-.numer {
-    margin: 0 0 12px;
-    color: #536375;
-    font-size: 11px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-h2 {
-    margin: 0 0 10px;
-    font-family: Georgia, serif;
-    font-size: 28px;
-    font-weight: normal;
-    line-height: 1.2;
-}
-
-.kolumna h2 {
-    font-size: 37px;
-}
-
-.lead {
-    margin: 0 0 18px;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-h3 {
-    margin: 21px 0 6px;
+.pozostale {
+    margin: 22px 16px 0;
     font-size: 15px;
-}
-
-.kolumna p:not(.numer):not(.lead) {
-    margin: 0 0 14px;
-    font-size: 15px;
-}
-
-a {
-    color: #244f7e;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-a:focus-visible {
-    outline: 2px solid #bd503c;
-    outline-offset: 4px;
-}
-
-.czytaj {
-    display: block;
-    margin-top: 23px;
-    padding-top: 15px;
-    border-top: 1px solid #cfdae5;
-    font-size: 13px;
-    font-weight: bold;
 }
 
 .tekst {
-    margin: 22px 0;
-    padding: 26px 32px;
+    margin: 20px 0;
+    padding: 24px 28px;
     background: #ffffff;
-    border: 1px solid #cfdae5;
-    border-top-width: 4px;
+    border: 1px solid #d1c9bf;
 }
 
-.tekst p:last-child {
-    margin-bottom: 0;
-}
-
-.tekst li {
-    margin: 10px 0;
-}
-
-.lista-zrodel li {
-    margin-bottom: 24px;
-    padding-left: 8px;
-}
-
-.lista-zrodel a {
-    font-weight: bold;
-}
-
-.lista-zrodel p {
-    margin-top: 6px;
-}
+.tekst p:last-child { margin-bottom: 0; }
+.tekst li { margin: 10px 0; }
+.lista-zrodel li { margin-bottom: 20px; }
+.lista-zrodel p { margin: 5px 0 0; }
 
 footer {
-    margin-top: 35px;
-    padding-top: 20px;
-    border-top: 1px solid #c7d2df;
+    margin-top: 30px;
+    padding-top: 16px;
+    border-top: 1px solid #d1c9bf;
+    background: #e8e3dc;
     font-size: 13px;
 }
 
-.footer-title {
-    margin: 0 0 8px;
-    font-weight: bold;
-}
-
-footer ul {
-    margin: 0 0 18px;
-    padding: 0;
-    list-style: none;
-}
-
-footer li {
-    display: inline-block;
-    margin-right: 22px;
-}
+footer ul { margin: 0 0 14px; padding: 0; list-style: none; }
+footer li { display: inline-block; margin-right: 24px; }
 
 .copyright {
-    padding: 12px;
-    background: #162a43;
-    color: #ffffff;
+    padding: 10px;
+    border-top: 1px solid #d1c9bf;
     text-align: center;
 }
