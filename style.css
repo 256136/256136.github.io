@@ -5,8 +5,8 @@
 
 body {
     margin: 0;
-    background: #f5f1e8;
-    color: #243344;
+    background: #eef2f5;
+    color: #25313d;
     font-family: Arial, sans-serif;
     font-size: 16px;
     line-height: 1.6;
@@ -19,10 +19,12 @@ body {
 
 header {
     padding: 23px 0 18px;
+    background: #162a43;
+    color: #ffffff;
 }
 
 .logo {
-    color: #172b40;
+    color: #ffffff;
     font-size: 32px;
     font-weight: bold;
     letter-spacing: -1px;
@@ -30,7 +32,7 @@ header {
 }
 
 .logo-dot {
-    color: #a14a2b;
+    color: #bd503c;
 }
 
 .slogan {
@@ -39,8 +41,9 @@ header {
 }
 
 nav {
-    border-top: 1px solid #c9c3b8;
-    border-bottom: 1px solid #c9c3b8;
+    background: #ffffff;
+    border-top: 1px solid #c7d2df;
+    border-bottom: 1px solid #c7d2df;
 }
 
 nav ul {
@@ -58,27 +61,27 @@ nav a {
     display: inline-block;
     padding: 12px 0 9px;
     border-bottom: 3px solid transparent;
-    color: #243344;
+    color: #25313d;
     text-decoration: none;
     font-size: 14px;
     font-weight: bold;
 }
 
 nav a[aria-current="page"], nav a:hover {
-    border-bottom-color: #a14a2b;
+    border-bottom-color: #bd503c;
 }
 
 .banner {
     margin: 30px 0;
     padding: 26px 34px 28px;
-    background: #172b40;
-    color: #fff8ed;
-    border-left: 6px solid #e1ad52;
+    background: #162a43;
+    color: #ffffff;
+    border-left: 6px solid #eead4a;
 }
 
 .eyebrow {
     margin: 0 0 12px;
-    color: #f1c87c;
+    color: #ffd285;
     font-size: 12px;
     font-weight: bold;
     letter-spacing: 2px;
@@ -101,36 +104,36 @@ h1 {
     font-size: 40px;
 }
 
-/* 3 x 324px + 2 x 24px = 1020px: trzy kolumny obok siebie. */
+/* Układ tabelaryczny CSS utrzymuje trzy kolumny w jednym rzędzie. */
+.kolumny {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    margin: 0 auto;
+    border-spacing: 16px 0;
+}
+
+.wiersz {
+    display: table-row;
+}
+
 .kolumna {
-    float: left;
-    width: 324px;
-    min-height: 580px;
-    margin-right: 24px;
+    display: table-cell;
+    width: 33.3333%;
+    vertical-align: top;
     padding: 24px;
-    background: #fffcf7;
-    border: 1px solid #d7d0c4;
-    border-top: 5px solid #d7d0c4;
+    background: #ffffff;
+    border: 1px solid #cfdae5;
+    border-top: 5px solid #cfdae5;
 }
 
-.kolumna:last-child {
-    margin-right: 0;
-}
-
-/* Zamknięcie układu float, aby stopka pojawiła się pod kolumnami. */
-.kolumny::after {
-    content: "";
-    display: block;
-    clear: both;
-}
-
-.slonce { border-top-color: #ad6a10; }
-.wiatr { border-top-color: #49705b; }
-.woda { border-top-color: #386b9a; }
+.slonce { border-top-color: #d58a25; }
+.wiatr { border-top-color: #128078; }
+.woda { border-top-color: #326ba8; }
 
 .numer {
     margin: 0 0 12px;
-    color: #59636c;
+    color: #536375;
     font-size: 11px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -165,7 +168,7 @@ h3 {
 }
 
 a {
-    color: #234f72;
+    color: #244f7e;
 }
 
 a:hover {
@@ -173,7 +176,7 @@ a:hover {
 }
 
 a:focus-visible {
-    outline: 2px solid #a14a2b;
+    outline: 2px solid #bd503c;
     outline-offset: 4px;
 }
 
@@ -181,7 +184,7 @@ a:focus-visible {
     display: block;
     margin-top: 23px;
     padding-top: 15px;
-    border-top: 1px solid #d7d0c4;
+    border-top: 1px solid #cfdae5;
     font-size: 13px;
     font-weight: bold;
 }
@@ -189,8 +192,8 @@ a:focus-visible {
 .tekst {
     margin: 22px 0;
     padding: 26px 32px;
-    background: #fffcf7;
-    border: 1px solid #d7d0c4;
+    background: #ffffff;
+    border: 1px solid #cfdae5;
     border-top-width: 4px;
 }
 
@@ -218,7 +221,7 @@ a:focus-visible {
 footer {
     margin-top: 35px;
     padding-top: 20px;
-    border-top: 1px solid #c9c3b8;
+    border-top: 1px solid #c7d2df;
     font-size: 13px;
 }
 
@@ -240,7 +243,7 @@ footer li {
 
 .copyright {
     padding: 12px;
-    background: #172b40;
-    color: #fff8ed;
+    background: #162a43;
+    color: #ffffff;
     text-align: center;
 }
