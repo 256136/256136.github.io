@@ -4,66 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Mateusz Skrobek">
-    <meta name="description" content="EkoEnergia to edukacyjny portal o odnawialnych źródłach energii i ich znaczeniu dla środowiska.">
-    <meta name="keywords" content="OZE, energia odnawialna, ekologia, środowisko, energia słoneczna, energia wiatrowa">
-    <title>Strona główna | EkoEnergia</title>
+    <meta name="description" content="Poznaj trzy sposoby wytwarzania energii ze słońca, wiatru i wody. Prosty przewodnik po OZE.">
+    <meta name="keywords" content="OZE, odnawialne źródła energii, słońce, wiatr, woda, ochrona środowiska">
+    <title>Natura ma moc | EkoEnergia</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <div class="content">
-            <a class="logo" href="index.html">EkoEnergia</a>
-            <p class="slogan">Poznaj energię pochodzącą z natury</p>
+            <a class="logo" href="index.html">EkoEnergia<span class="logo-dot">.</span></a>
+            <p class="slogan">Od sił natury do energii w Twoim domu</p>
         </div>
     </header>
 
     <nav aria-label="Menu główne">
         <div class="content">
             <ul>
-                    <li><a href="index.html">Strona główna</a></li>
-                    <li><a href="rodzaje.html">Rodzaje OZE</a></li>
-                    <li><a href="znaczenie.html">Zalety i wyzwania</a></li>
-                    <li><a href="zrodla.html">Źródła</a></li>
+                    <li><a href="index.html" aria-current="page">Start</a></li>
+                    <li><a href="rodzaje.html">Jak to działa?</a></li>
+                    <li><a href="znaczenie.html">Korzyści i ograniczenia</a></li>
+                    <li><a href="zrodla.html">Materiały</a></li>
             </ul>
         </div>
     </nav>
 
     <main class="content">
-        <!-- W kolejnych zajęciach baner można zastąpić zdjęciem. -->
+        <!-- Baner tekstowy: zdjęcia będą dodawane na kolejnych zajęciach. -->
         <div class="banner">
-            <h1>Odnawialne źródła energii</h1>
-            <p>Odnawialne źródła energii w prostych słowach</p>
+            <p class="eyebrow">ODNAWIALNE ŹRÓDŁA ENERGII / MAŁY PRZEWODNIK</p>
+            <h1>Natura ma moc.<br>Poznaj jej źródła.</h1>
+            <p>Słońce, wiatr i woda dostarczają energii dzięki procesom zachodzącym w przyrodzie.
+                Sprawdź, jak wykorzystujemy je do produkcji prądu i co trzeba przy tym uwzględnić.</p>
         </div>
 
-        <section>
-            <h2>Czym są odnawialne źródła energii?</h2>
-            <p>Odnawialne źródła energii (OZE) wykorzystują zasoby przyrody, które odtwarzają się w naturalnych procesach. Należą do nich między innymi promieniowanie słoneczne, wiatr, woda, ciepło wnętrza Ziemi i biomasa. Z tych źródeł można wytwarzać energię elektryczną lub ciepło.</p>
-        </section>
+        <!-- Trzy główne kolumny: po jednej sekcji dla każdego źródła energii. -->
+        <div class="kolumny">
+            <section class="kolumna slonce">
+                <p class="numer">01 / ŚWIATŁO</p>
+                <h2>Słońce</h2>
+                <p class="lead">Energia, która trafia na dach.</p>
+                <p>Ogniwa fotowoltaiczne zamieniają promieniowanie słoneczne w energię elektryczną.
+                    Instalacje spotykamy na budynkach i w większych farmach fotowoltaicznych.</p>
+                <h3>Co daje?</h3>
+                <p>Możliwość wytwarzania prądu blisko miejsca jego wykorzystania, także na dachu domu.</p>
+                <h3>Od czego zależy?</h3>
+                <p>Od nasłonecznienia, zacienienia i ustawienia paneli. Nocą fotowoltaika nie produkuje prądu.</p>
+                <a class="czytaj" href="rodzaje.html#slonce">Jak światło staje się prądem? &#8594;</a>
+            </section>
 
-        <section>
-            <h2>Co znajdziesz na tej stronie?</h2>
-            <p>Portal EkoEnergia wyjaśnia, w jaki sposób działają najważniejsze rodzaje OZE. Przedstawia ich zastosowania, korzyści dla środowiska oraz ograniczenia. Informacje są przeznaczone dla osób, które chcą poznać podstawy energetyki odnawialnej.</p>
-            <p><a href="rodzaje.html">Poznaj rodzaje OZE</a></p>
-        </section>
+            <section class="kolumna wiatr">
+                <p class="numer">02 / RUCH POWIETRZA</p>
+                <h2>Wiatr</h2>
+                <p class="lead">Powietrze wprawia turbinę w ruch.</p>
+                <p>Wiatr obraca łopaty turbiny. Ruch wirnika jest wykorzystywany do napędzania generatora,
+                    który wytwarza energię elektryczną.</p>
+                <h3>Co daje?</h3>
+                <p>Produkcję prądu bez spalania paliwa podczas pracy turbiny. Elektrownie mogą działać także nocą.</p>
+                <h3>Od czego zależy?</h3>
+                <p>Od warunków wiatrowych. Lokalizację trzeba dobierać z uwzględnieniem mieszkańców i przyrody.</p>
+                <a class="czytaj" href="rodzaje.html#wiatr">Co napędza generator? &#8594;</a>
+            </section>
 
-        <section>
-            <h2>Dlaczego warto interesować się OZE?</h2>
-            <p>Wykorzystanie odnawialnych źródeł energii może ograniczać zużycie paliw kopalnych i związane z nimi emisje. Poszczególne technologie różnią się jednak kosztami, dostępnością oraz wpływem na przyrodę. Dlatego warto poznać zarówno ich zalety, jak i wyzwania.</p>
-            <p><a href="znaczenie.html">Przeczytaj o zaletach i wyzwaniach</a></p>
-        </section>
-
+            <section class="kolumna woda">
+                <p class="numer">03 / PRZEPŁYW</p>
+                <h2>Woda</h2>
+                <p class="lead">Rzeka może napędzać elektrownię.</p>
+                <p>Elektrownie wodne wykorzystują przepływ i różnicę poziomów wody.
+                    Woda napędza turbinę połączoną z generatorem energii elektrycznej.</p>
+                <h3>Co daje?</h3>
+                <p>Wykorzystanie energii płynącej wody. W części elektrowni zbiornik pozwala regulować produkcję.</p>
+                <h3>Od czego zależy?</h3>
+                <p>Od dostępności wody i warunków rzeki. Zapory mogą utrudniać migrację ryb i zmieniać ekosystem.</p>
+                <a class="czytaj" href="rodzaje.html#woda">Jak przepływ wytwarza prąd? &#8594;</a>
+            </section>
+        </div>
     </main>
 
     <footer>
         <div class="content">
-            <h2>Informacje o projekcie</h2>
+            <p class="footer-title">EkoEnergia. Zrozum, skąd bierze się energia.</p>
             <ul>
                 <li>Autor: Mateusz Skrobek</li>
                 <li>Temat: Odnawialne źródła energii</li>
                 <li>Przedmiot: Projektowanie serwisów WWW</li>
             </ul>
         </div>
-        <div class="copyright">&#169; 2026 EkoEnergia. Projekt edukacyjny.</div>
+        <div class="copyright">&#169; 2026 EkoEnergia. Portal edukacyjny.</div>
     </footer>
 </body>
 </html>
