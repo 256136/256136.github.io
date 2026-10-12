@@ -1,1 +1,110 @@
+/* Podstawowe style CSS - bez Flexbox, Grid i responsywności */
+body {
+    margin: 0;
+    background-color: #f2f5f2;
+    color: #25352b;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
 
+.content {
+    width: 900px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #226744;
+    color: white;
+    padding: 22px 0 14px;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.slogan {
+    margin: 5px 0 0;
+}
+
+nav {
+    background-color: #194d34;
+    padding: 12px 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 28px;
+}
+
+nav a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.banner {
+    margin: 26px 0;
+    padding: 35px;
+    background-color: #dcefe0;
+    border-left: 6px solid #348b5d;
+}
+
+.banner h1 {
+    margin-top: 0;
+    color: #165336;
+}
+
+.banner p {
+    margin-bottom: 0;
+}
+
+section {
+    background-color: white;
+    margin: 20px 0;
+    padding: 20px 25px;
+    border: 1px solid #d7e1d8;
+}
+
+section h2 {
+    margin-top: 0;
+    color: #20633f;
+}
+
+a {
+    color: #176341;
+}
+
+footer {
+    background-color: #e0e9e1;
+    margin-top: 35px;
+    padding-top: 18px;
+}
+
+footer h2 {
+    font-size: 19px;
+}
+
+footer ul {
+    padding-left: 20px;
+}
+
+.copyright {
+    background-color: #194d34;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    margin-top: 15px;
+}
