@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -7,9 +8,10 @@
     <meta name="description" content="Odnawialne źródła energii (OZE) wykorzystują zasoby odtwarzające się w naturalnych procesach. Należą do nich energia słoneczna, wiatrowa, wodna, geotermalna oraz energia z biomasy.">
     <meta name="keywords" content="OZE, energia słoneczna, energia wiatrowa, energia wodna, geotermia, biomasa, biogaz">
     <title>Strona główna | EkoEnergia</title>
-    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
+
     <header>
         <div class="content">
             <a class="logo" href="index.html">EkoEnergia</a>
@@ -30,48 +32,95 @@
     </nav>
 
     <main class="content">
+
         <div class="banner">
             <h1>Odnawialne źródła energii</h1>
-            <p>Odnawialne źródła energii (OZE) wykorzystują zasoby odtwarzające się w naturalnych procesach. Należą do nich energia słoneczna, wiatrowa, wodna, geotermalna oraz energia z biomasy.</p>
+            <p>
+                Odnawialne źródła energii (OZE) wykorzystują zasoby
+                odtwarzające się w naturalnych procesach. Należą do nich
+                energia słoneczna, wiatrowa, wodna, geotermalna oraz
+                energia z biomasy.
+            </p>
         </div>
 
-        <!-- Trzy główne kolumny w jednym wyśrodkowanym rzędzie. -->
+        <!-- Trzy kolumny ułożone za pomocą Flexbox -->
         <div class="kolumny">
-            <div class="wiersz">
-                <section class="kolumna">
-                    <h2>Energia słoneczna</h2>
-                    <p>Panele fotowoltaiczne przekształcają promieniowanie słoneczne w energię elektryczną.
-                        Kolektory słoneczne wykorzystują je do podgrzewania wody.</p>
-                    <h3>Zastosowanie</h3>
-                    <p>Instalacje na dachach budynków oraz farmy fotowoltaiczne. Produkcja prądu zależy od ilości światła docierającego do paneli.</p>
-                    <p><a href="rodzaje.html#slonce">Opis energii słonecznej</a></p>
-                </section>
 
-                <section class="kolumna">
-                    <h2>Energia wiatrowa</h2>
-                    <p>Wiatr obraca łopaty turbiny, a połączony z nią generator wytwarza energię elektryczną.
-                        Elektrownie wiatrowe buduje się na lądzie i na morzu.</p>
-                    <h3>Zastosowanie</h3>
-                    <p>Dostarczanie prądu do sieci energetycznej. Ilość produkowanej energii zależy od warunków wiatrowych w danej lokalizacji.</p>
-                    <p><a href="rodzaje.html#wiatr">Opis energii wiatrowej</a></p>
-                </section>
+            <section class="kolumna">
+                <h2>Energia słoneczna</h2>
+                <p>
+                    Panele fotowoltaiczne przekształcają promieniowanie
+                    słoneczne w energię elektryczną. Kolektory słoneczne
+                    wykorzystują je do podgrzewania wody.
+                </p>
 
-                <section class="kolumna">
-                    <h2>Energia wodna</h2>
-                    <p>Przepływająca woda napędza turbinę połączoną z generatorem.
-                        Elektrownie wykorzystują przepływ rzeki i różnicę poziomów wody.</p>
-                    <h3>Zastosowanie</h3>
-                    <p>Produkcja prądu w elektrowniach przepływowych i zbiornikowych. Wielkość produkcji zależy między innymi od dostępności wody.</p>
-                    <p><a href="rodzaje.html#woda">Opis energii wodnej</a></p>
-                </section>
-            </div>
+                <h3>Zastosowanie</h3>
+                <p>
+                    Instalacje na dachach budynków oraz farmy
+                    fotowoltaiczne. Produkcja prądu zależy od ilości
+                    światła docierającego do paneli.
+                </p>
+
+                <p>
+                    <a href="rodzaje.html#slonce">
+                        Opis energii słonecznej
+                    </a>
+                </p>
+            </section>
+
+            <section class="kolumna">
+                <h2>Energia wiatrowa</h2>
+                <p>
+                    Wiatr obraca łopaty turbiny, a połączony z nią
+                    generator wytwarza energię elektryczną. Elektrownie
+                    wiatrowe buduje się na lądzie i na morzu.
+                </p>
+
+                <h3>Zastosowanie</h3>
+                <p>
+                    Dostarczanie prądu do sieci energetycznej. Ilość
+                    produkowanej energii zależy od warunków wiatrowych
+                    w danej lokalizacji.
+                </p>
+
+                <p>
+                    <a href="rodzaje.html#wiatr">
+                        Opis energii wiatrowej
+                    </a>
+                </p>
+            </section>
+
+            <section class="kolumna">
+                <h2>Energia wodna</h2>
+                <p>
+                    Przepływająca woda napędza turbinę połączoną
+                    z generatorem. Elektrownie wykorzystują przepływ
+                    rzeki i różnicę poziomów wody.
+                </p>
+
+                <h3>Zastosowanie</h3>
+                <p>
+                    Produkcja prądu w elektrowniach przepływowych
+                    i zbiornikowych. Wielkość produkcji zależy między
+                    innymi od dostępności wody.
+                </p>
+
+                <p>
+                    <a href="rodzaje.html#woda">
+                        Opis energii wodnej
+                    </a>
+                </p>
+            </section>
+
         </div>
 
-        <p class="pozostale">Pozostałe rodzaje OZE:
+        <p class="pozostale">
+            Pozostałe rodzaje OZE:
             <a href="rodzaje.html#geotermia">energia geotermalna</a>,
             <a href="rodzaje.html#biomasa">biomasa</a> i
             <a href="rodzaje.html#biogaz">biogaz</a>.
         </p>
+
     </main>
 
     <footer>
@@ -81,7 +130,11 @@
                 <li>Przedmiot: Projektowanie serwisów WWW</li>
             </ul>
         </div>
-        <div class="copyright">&#169; 2026 EkoEnergia. Projekt edukacyjny.</div>
+
+        <div class="copyright">
+            &#169; 2026 EkoEnergia. Projekt edukacyjny.
+        </div>
     </footer>
+
 </body>
 </html>
