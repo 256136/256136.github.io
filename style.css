@@ -1,4 +1,4 @@
-/* Podstawowe style CSS z wykorzystaniem Flexbox */
+/* Podstawowe style */
 * {
     box-sizing: border-box;
 }
@@ -19,6 +19,7 @@ body {
     padding: 0 16px;
 }
 
+/* Nagłówek */
 header {
     padding: 22px 0 18px;
     background: #ffffff;
@@ -37,6 +38,7 @@ header p {
     font-size: 14px;
 }
 
+/* Nawigacja */
 nav {
     background: #e8e3dc;
     border-top: 1px solid #d1c9bf;
@@ -52,12 +54,8 @@ nav ul {
     list-style: none;
 }
 
-nav li {
-    display: flex;
-}
-
 nav a {
-    display: inline-block;
+    display: block;
     padding: 11px 0 8px;
     color: #35312e;
     border-bottom: 3px solid transparent;
@@ -70,6 +68,7 @@ nav a[aria-current="page"] {
     font-weight: bold;
 }
 
+/* Baner */
 .banner {
     margin: 26px 0;
     padding: 22px 26px;
@@ -115,19 +114,13 @@ a:focus-visible {
     outline-offset: 3px;
 }
 
-/* Trzy kolumny za pomocą Flexbox */
+/* Trzy kolumny Flexbox */
 .kolumny {
     display: flex;
     gap: 16px;
     width: 100%;
     margin: 0 auto;
     align-items: stretch;
-}
-
-.wiersz {
-    display: flex;
-    flex: 1;
-    gap: 16px;
 }
 
 .kolumna {
@@ -146,11 +139,13 @@ a:focus-visible {
     margin-bottom: 0;
 }
 
+/* Pozostałe informacje */
 .pozostale {
     margin: 22px 16px 0;
     font-size: 15px;
 }
 
+/* Bloki tekstowe */
 .tekst {
     margin: 20px 0;
     padding: 24px 28px;
@@ -174,6 +169,7 @@ a:focus-visible {
     margin: 5px 0 0;
 }
 
+/* Stopka */
 footer {
     margin-top: 30px;
     padding-top: 16px;
@@ -191,20 +187,15 @@ footer ul {
     list-style: none;
 }
 
-footer li {
-    display: flex;
-}
-
 .copyright {
     padding: 10px;
     border-top: 1px solid #d1c9bf;
     text-align: center;
 }
 
-/* Responsywność */
+/* Tablety i telefony */
 @media (max-width: 768px) {
-    .kolumny,
-    .wiersz {
+    .kolumny {
         flex-direction: column;
     }
 
