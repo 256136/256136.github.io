@@ -1,4 +1,8 @@
-/* Podstawowe style */
+
+/* =========================
+   PODSTAWOWE STYLE
+   ========================= */
+
 * {
     box-sizing: border-box;
 }
@@ -15,11 +19,15 @@ body {
 .content {
     width: 100%;
     max-width: 1020px;
+    min-width: 0;
     margin: 0 auto;
     padding: 0 16px;
 }
 
-/* Nagłówek */
+/* =========================
+   NAGŁÓWEK
+   ========================= */
+
 header {
     padding: 22px 0 18px;
     background: #ffffff;
@@ -38,7 +46,10 @@ header p {
     font-size: 14px;
 }
 
-/* Nawigacja */
+/* =========================
+   MENU NAWIGACYJNE
+   ========================= */
+
 nav {
     background: #e8e3dc;
     border-top: 1px solid #d1c9bf;
@@ -52,6 +63,10 @@ nav ul {
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+nav li {
+    min-width: 0;
 }
 
 nav a {
@@ -68,7 +83,10 @@ nav a[aria-current="page"] {
     font-weight: bold;
 }
 
-/* Baner */
+/* =========================
+   BANER
+   ========================= */
+
 .banner {
     margin: 26px 0;
     padding: 22px 26px;
@@ -114,43 +132,34 @@ a:focus-visible {
     outline-offset: 3px;
 }
 
-/* Trzy kolumny Flexbox */
-/* Kontener strony */
-.content {
-    width: 100%;
-    max-width: 1020px;
-    margin: 0 auto;
-    padding: 0 16px;
-    min-width: 0;
-}
+/* =========================
+   KOLUMNY FLEXBOX
+   ========================= */
 
-/* Kolumny Flexbox */
 .kolumny {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    align-items: stretch;
     gap: 16px;
     width: 100%;
     min-width: 0;
     margin: 0;
-    align-items: stretch;
 }
 
-/* Pojedyncza kolumna */
 .kolumna {
-    flex: 1 1 calc(33.333% - 11px);
+    flex: 1 1 0;
     min-width: 0;
     max-width: 100%;
-    overflow-wrap: anywhere;
     padding: 24px;
     background: #ffffff;
     border: 1px solid #d1c9bf;
+    overflow-wrap: anywhere;
 }
 
-/* Tekst nie może poszerzać kolumny */
-.kolumna p,
 .kolumna h2,
-.kolumna h3 {
+.kolumna h3,
+.kolumna p {
     max-width: 100%;
     overflow-wrap: anywhere;
 }
@@ -162,15 +171,54 @@ a:focus-visible {
 .kolumna p:last-child {
     margin-bottom: 0;
 }
+
+/* =========================
+   POZOSTAŁE INFORMACJE
+   ========================= */
+
+.pozostale {
+    margin: 22px 16px 0;
+    font-size: 15px;
+}
+
+/* =========================
+   BLOKI TEKSTOWE
+   ========================= */
+
+.tekst {
+    margin: 20px 0;
+    padding: 24px 28px;
+    background: #ffffff;
+    border: 1px solid #d1c9bf;
+}
+
+.tekst p:last-child {
+    margin-bottom: 0;
+}
+
+.tekst li {
+    margin: 10px 0;
+}
+
+.lista-zrodel li {
+    margin-bottom: 20px;
+}
+
+.lista-zrodel p {
+    margin: 5px 0 0;
+}
+
+/* =========================
+   STOPKA
+   ========================= */
+
 footer {
     display: block;
-    position: relative;
     width: 100%;
-    clear: both;
     margin-top: 30px;
     padding-top: 16px;
-    border-top: 1px solid #90EE90;
     background: #e8e3dc;
+    border-top: 1px solid #90EE90;
     color: #35312e;
     font-size: 13px;
 }
@@ -196,38 +244,64 @@ footer li {
 }
 
 .copyright {
-    display: block;
     width: 100%;
     padding: 10px;
     border-top: 1px solid #d1c9bf;
     text-align: center;
 }
-/* Tablety i telefony */
+
+/* =========================
+   TABLETY
+   ========================= */
+
 @media (max-width: 768px) {
     .kolumny {
         flex-direction: column;
+        flex-wrap: nowrap;
     }
 
     .kolumna {
-        flex: 1 1 auto;
+        flex: 0 0 auto;
         width: 100%;
+    }
+
+    .tekst {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 26px;
     }
 }
 
+/* =========================
+   TELEFONY
+   ========================= */
+
 @media (max-width: 480px) {
     .content {
-        padding: 0 12px;
-    }
-
-    .kolumna {
-        padding: 18px;
+        padding-right: 12px;
+        padding-left: 12px;
     }
 
     .banner {
         padding: 18px;
     }
 
-    h1 {
-        font-size: 26px;
+    .kolumna {
+        padding: 18px;
+    }
+
+    nav ul {
+        gap: 0 18px;
+    }
+
+    footer ul {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .copyright {
+        padding: 10px 6px;
     }
 }
