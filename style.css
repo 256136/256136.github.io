@@ -273,7 +273,88 @@ footer li {
         font-size: 26px;
     }
 }
+.banner {
+    display: block;
+    visibility: visible;
+    width: 100%;
+    height: auto;
+    margin: 26px 0;
+    padding: 22px 26px;
+    background-color: #e8e3dc;
+    border-left: 4px solid #795347;
+    color: #35312e;
+}
 
+.banner h1 {
+    display: block;
+    margin: 0 0 10px;
+}
+
+.banner p {
+    display: block;
+    margin: 0;
+}
+
+main.content {
+    display: block;
+    overflow: visible;
+}
+
+footer {
+    display: block;
+    visibility: visible;
+    position: static;
+    clear: both;
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+    margin-top: 30px;
+    padding-top: 16px;
+    background-color: #e8e3dc;
+    border-top: 1px solid #90EE90;
+    color: #35312e;
+    font-size: 13px;
+}
+
+footer .content {
+    display: block;
+    width: 100%;
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+footer ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 24px;
+    margin: 0 0 14px;
+    padding: 0;
+    list-style: none;
+}
+
+footer li {
+    display: block;
+}
+
+.copyright {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-top: 1px solid #d1c9bf;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .banner {
+        padding: 18px;
+    }
+
+    footer ul {
+        flex-direction: column;
+        gap: 4px;
+    }
+}
 /* =========================
    TELEFONY
    ========================= */
