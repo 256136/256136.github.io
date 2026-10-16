@@ -162,7 +162,46 @@ a:focus-visible {
 .kolumna p:last-child {
     margin-bottom: 0;
 }
+footer {
+    display: block;
+    position: relative;
+    width: 100%;
+    clear: both;
+    margin-top: 30px;
+    padding-top: 16px;
+    border-top: 1px solid #90EE90;
+    background: #e8e3dc;
+    color: #35312e;
+    font-size: 13px;
+}
 
+footer .content {
+    width: 100%;
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+footer ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 24px;
+    margin: 0 0 14px;
+    padding: 0;
+    list-style: none;
+}
+
+footer li {
+    display: block;
+}
+
+.copyright {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-top: 1px solid #d1c9bf;
+    text-align: center;
+}
 /* Tablety i telefony */
 @media (max-width: 768px) {
     .kolumny {
