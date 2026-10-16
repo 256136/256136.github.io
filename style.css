@@ -1,5 +1,7 @@
-/* Podstawowe style CSS. Stała szerokość strony, bez Flexbox i Grid. */
-* { box-sizing: border-box; }
+/* Podstawowe style CSS z wykorzystaniem Flexbox */
+* {
+    box-sizing: border-box;
+}
 
 body {
     margin: 0;
@@ -11,8 +13,10 @@ body {
 }
 
 .content {
-    width: 1020px;
+    width: 100%;
+    max-width: 1020px;
     margin: 0 auto;
+    padding: 0 16px;
 }
 
 header {
@@ -28,7 +32,10 @@ header {
     text-decoration: none;
 }
 
-header p { margin: 3px 0 0; font-size: 14px; }
+header p {
+    margin: 3px 0 0;
+    font-size: 14px;
+}
 
 nav {
     background: #e8e3dc;
@@ -36,8 +43,18 @@ nav {
     border-bottom: 1px solid #d1c9bf;
 }
 
-nav ul { margin: 0; padding: 0; list-style: none; }
-nav li { display: inline-block; margin-right: 28px; }
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 28px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: flex;
+}
 
 nav a {
     display: inline-block;
@@ -60,37 +77,74 @@ nav a[aria-current="page"] {
     border-left: 4px solid #795347;
 }
 
-h1 { margin: 0 0 10px; font-size: 30px; line-height: 1.25; }
-.banner p { margin: 0; }
-h2 { margin: 0 0 15px; font-size: 22px; line-height: 1.35; }
-h3 { margin: 22px 0 8px; font-size: 17px; }
-p { margin: 0 0 16px; }
-a { color: #754b3c; }
-a:hover { text-decoration: underline; }
-a:focus-visible { outline: 2px solid #795347; outline-offset: 3px; }
-
-/* Trzy równe kolumny w jednym rzędzie; układ zachowany z poprzedniej wersji. */
-.kolumny {
-    display: table;
-    table-layout: fixed;
-    width: 100%;
-    margin: 0 auto;
-    border-spacing: 16px 0;
+h1 {
+    margin: 0 0 10px;
+    font-size: 30px;
+    line-height: 1.25;
 }
 
-.wiersz { display: table-row; }
+.banner p {
+    margin: 0;
+}
+
+h2 {
+    margin: 0 0 15px;
+    font-size: 22px;
+    line-height: 1.35;
+}
+
+h3 {
+    margin: 22px 0 8px;
+    font-size: 17px;
+}
+
+p {
+    margin: 0 0 16px;
+}
+
+a {
+    color: #754b3c;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:focus-visible {
+    outline: 2px solid #795347;
+    outline-offset: 3px;
+}
+
+/* Trzy kolumny za pomocą Flexbox */
+.kolumny {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+.wiersz {
+    display: flex;
+    flex: 1;
+    gap: 16px;
+}
 
 .kolumna {
-    display: table-cell;
-    width: 33.3333%;
-    vertical-align: top;
+    flex: 1 1 0;
+    min-width: 0;
     padding: 24px;
     background: #ffffff;
     border: 1px solid #d1c9bf;
 }
 
-.kolumna p { font-size: 15px; }
-.kolumna p:last-child { margin-bottom: 0; }
+.kolumna p {
+    font-size: 15px;
+}
+
+.kolumna p:last-child {
+    margin-bottom: 0;
+}
 
 .pozostale {
     margin: 22px 16px 0;
@@ -104,10 +158,21 @@ a:focus-visible { outline: 2px solid #795347; outline-offset: 3px; }
     border: 1px solid #d1c9bf;
 }
 
-.tekst p:last-child { margin-bottom: 0; }
-.tekst li { margin: 10px 0; }
-.lista-zrodel li { margin-bottom: 20px; }
-.lista-zrodel p { margin: 5px 0 0; }
+.tekst p:last-child {
+    margin-bottom: 0;
+}
+
+.tekst li {
+    margin: 10px 0;
+}
+
+.lista-zrodel li {
+    margin-bottom: 20px;
+}
+
+.lista-zrodel p {
+    margin: 5px 0 0;
+}
 
 footer {
     margin-top: 30px;
@@ -117,11 +182,60 @@ footer {
     font-size: 13px;
 }
 
-footer ul { margin: 0 0 14px; padding: 0; list-style: none; }
-footer li { display: inline-block; margin-right: 24px; }
+footer ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 24px;
+    margin: 0 0 14px;
+    padding: 0;
+    list-style: none;
+}
+
+footer li {
+    display: flex;
+}
 
 .copyright {
     padding: 10px;
     border-top: 1px solid #d1c9bf;
     text-align: center;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .kolumny,
+    .wiersz {
+        flex-direction: column;
+    }
+
+    .kolumna {
+        flex: 1 1 auto;
+        width: 100%;
+    }
+
+    .tekst {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        padding: 0 12px;
+    }
+
+    .banner {
+        padding: 18px;
+    }
+
+    .kolumna {
+        padding: 18px;
+    }
+
+    nav ul {
+        gap: 0 18px;
+    }
 }
