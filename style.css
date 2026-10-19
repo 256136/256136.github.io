@@ -1,126 +1,144 @@
+/* Ćwiczenie 3: Flexbox, responsywność i animacja menu.
+   Stonowana zieleń, chłodne jasne tło i białe sekcje. */
 
-/* =========================
-   PODSTAWOWE STYLE
-   ========================= */
-
+/* 1. Reset domyślnych odstępów przeglądarki. */
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    background: #f3f1ed;
-    color: #35312e;
     font-family: Arial, sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.6;
+    color: #253b3a;
+    background-color: #f2f7f8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-wrap: anywhere;
 }
 
+/* Elastyczna szerokość zamiast dawnego width: 1020px.
+   Węższe okno zmienia układ, ale nie pomniejsza tekstu. */
 .content {
-    width: 100%;
-    max-width: 1020px;
-    min-width: 0;
+    width: min(1020px, 90%);
     margin: 0 auto;
-    padding: 0 16px;
 }
 
-/* =========================
-   NAGŁÓWEK
-   ========================= */
-
+/* 2. Nagłówek. */
 header {
-    padding: 22px 0 18px;
-    background: #ffffff;
-    border-top: 5px solid #795347;
+    padding: 20px 0;
+    background-color: #ffffff;
+    border-top: 5px solid #2e7d6b;
+    text-align: center;
 }
 
 .logo {
-    color: #67463c;
-    font-size: 28px;
+    color: #215b4e;
+    font-size: 1.75rem;
     font-weight: bold;
     text-decoration: none;
 }
 
 header p {
-    margin: 3px 0 0;
-    font-size: 14px;
+    margin-top: 3px;
 }
 
-/* =========================
-   MENU NAWIGACYJNE
-   ========================= */
-
+/* 3. Poziome, wyśrodkowane menu Flexbox. */
 nav {
-    background: #e8e3dc;
-    border-top: 1px solid #d1c9bf;
-    border-bottom: 1px solid #d1c9bf;
+    background-color: #e3f0ec;
+    border-top: 1px solid #c9ded7;
+    border-bottom: 1px solid #c9ded7;
 }
 
 nav ul {
+    list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 0 28px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    justify-content: center;
 }
 
 nav li {
+    margin: 0;
     min-width: 0;
 }
 
 nav a {
     display: block;
-    padding: 11px 0 8px;
-    color: #35312e;
+    padding: 15px 20px;
+    color: #253b3a;
     border-bottom: 3px solid transparent;
-    font-size: 15px;
     text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 nav a[aria-current="page"] {
-    border-bottom-color: #00BFFF;
+    border-bottom-color: #2e7d6b;
     font-weight: bold;
 }
 
-/* =========================
-   BANER
-   ========================= */
+/* 4. Główna zawartość wypełnia przestrzeń nad stopką.
+   Na podstronach opisy są ułożone pionowo. */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 2vw, 3rem);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-width: 0;
+}
+
+/* Na stronie głównej baner zajmuje cały rząd,
+   a trzy sekcje poniżej są równymi kolumnami Flexbox. */
+main.strona-glowna {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+main.strona-glowna > .banner,
+main.strona-glowna > .pozostale {
+    flex-basis: 100%;
+    min-width: 0;
+}
 
 .banner {
-    margin: 26px 0;
     padding: 22px 26px;
-    background: #e8e3dc;
-    border-left: 4px solid #795347;
+    background-color: #e3f0ec;
+    border-left: 4px solid #2e7d6b;
 }
 
 h1 {
-    margin: 0 0 10px;
-    font-size: 30px;
+    margin-bottom: 10px;
+    font-size: 1.875rem;
     line-height: 1.25;
 }
 
-.banner p {
-    margin: 0;
-}
-
 h2 {
-    margin: 0 0 15px;
-    font-size: 22px;
+    margin-bottom: 15px;
+    font-size: 1.375rem;
     line-height: 1.35;
 }
 
 h3 {
     margin: 22px 0 8px;
-    font-size: 17px;
+    font-size: 1.0625rem;
 }
 
 p {
-    margin: 0 0 16px;
+    margin-bottom: 16px;
+}
+
+.banner p,
+.pozostale {
+    margin-bottom: 0;
 }
 
 a {
-    color: #754b3c;
+    color: #246a58;
 }
 
 a:hover {
@@ -128,72 +146,48 @@ a:hover {
 }
 
 a:focus-visible {
-    outline: 2px solid #795347;
+    outline: 2px solid #2e7d6b;
     outline-offset: 3px;
 }
 
-/* =========================
-   KOLUMNY FLEXBOX
-   ========================= */
-
-.kolumny {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: stretch;
-    gap: 16px;
-    width: 100%;
-    min-width: 0;
-    margin: 0;
-}
-
+/* 5. Trzy równe kolumny, bez stałych szerokości i wysokości. */
 .kolumna {
-    flex: 1 1 0;
+    flex: 1;
     min-width: 0;
-    max-width: 100%;
-    padding: 24px;
-    background: #ffffff;
-    border: 1px solid #d1c9bf;
-    overflow-wrap: anywhere;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #c9ded7;
+    border-radius: 8px;
 }
 
-.kolumna h2,
-.kolumna h3,
-.kolumna p {
-    max-width: 100%;
-    overflow-wrap: anywhere;
+.kolumna img,
+.tekst .zdjecie-energii {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 16px;
+    border-radius: 4px;
 }
 
-.kolumna p {
-    font-size: 15px;
+.tekst .zdjecie-energii {
+    max-width: 640px;
 }
 
-.kolumna p:last-child {
-    margin-bottom: 0;
-}
-
-/* =========================
-   POZOSTAŁE INFORMACJE
-   ========================= */
-
-.pozostale {
-    margin: 22px 16px 0;
-    font-size: 15px;
-}
-
-/* =========================
-   BLOKI TEKSTOWE
-   ========================= */
-
-.tekst {
-    margin: 20px 0;
-    padding: 24px 28px;
-    background: #ffffff;
-    border: 1px solid #d1c9bf;
-}
-
+.kolumna p:last-child,
 .tekst p:last-child {
     margin-bottom: 0;
+}
+
+.tekst {
+    min-width: 0;
+    padding: 24px 28px;
+    background-color: #ffffff;
+    border: 1px solid #c9ded7;
+}
+
+.tekst ul,
+.tekst ol {
+    padding-left: 24px;
 }
 
 .tekst li {
@@ -208,181 +202,72 @@ a:focus-visible {
     margin: 5px 0 0;
 }
 
-/* =========================
-   STOPKA
-   ========================= */
-
+/* 6. Stopka pozostaje przy dole również na krótkich stronach. */
 footer {
-    display: block;
-    width: 100%;
-    margin-top: 30px;
-    padding-top: 16px;
-    background: #e8e3dc;
-    border-top: 1px solid #90EE90;
-    color: #35312e;
-    font-size: 13px;
-}
-
-footer .content {
-    width: 100%;
-    max-width: 1020px;
-    margin: 0 auto;
-    padding: 0 16px;
-}
-
-footer ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0 24px;
-    margin: 0 0 14px;
-    padding: 0;
-    list-style: none;
-}
-
-footer li {
-    display: block;
-}
-
-.copyright {
-    width: 100%;
-    padding: 10px;
-    border-top: 1px solid #d1c9bf;
+    padding-top: 15px;
+    border-top: 1px solid #c9ded7;
+    background-color: #e3f0ec;
     text-align: center;
 }
 
-/* =========================
-   TABLETY
-   ========================= */
+.footer-content ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 24px;
+    margin-bottom: 14px;
+    list-style: none;
+}
 
+.copyright {
+    padding: 10px 5%;
+    border-top: 1px solid #c9ded7;
+}
+
+/* 7 i 8. Na węższym ekranie sekcje i menu przechodzą pod siebie.
+   Rozmiar tekstu się nie zmienia; przyciski mają większe odstępy. */
 @media (max-width: 768px) {
-    .kolumny {
+    main.strona-glowna {
         flex-direction: column;
         flex-wrap: nowrap;
     }
 
-    .kolumna {
-        flex: 0 0 auto;
-        width: 100%;
-    }
-
-    .tekst {
-        padding: 20px;
-    }
-
-    h1 {
-        font-size: 26px;
-    }
-}
-.banner {
-    display: block;
-    visibility: visible;
-    width: 100%;
-    height: auto;
-    margin: 26px 0;
-    padding: 22px 26px;
-    background-color: #e8e3dc;
-    border-left: 4px solid #795347;
-    color: #35312e;
-}
-
-.banner h1 {
-    display: block;
-    margin: 0 0 10px;
-}
-
-.banner p {
-    display: block;
-    margin: 0;
-}
-
-main.content {
-    display: block;
-    overflow: visible;
-}
-
-footer {
-    display: block;
-    visibility: visible;
-    position: static;
-    clear: both;
-    width: 100%;
-    height: auto;
-    min-height: 60px;
-    margin-top: 30px;
-    padding-top: 16px;
-    background-color: #e8e3dc;
-    border-top: 1px solid #90EE90;
-    color: #35312e;
-    font-size: 13px;
-}
-
-footer .content {
-    display: block;
-    width: 100%;
-    max-width: 1020px;
-    margin: 0 auto;
-    padding: 0 16px;
-}
-
-footer ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0 24px;
-    margin: 0 0 14px;
-    padding: 0;
-    list-style: none;
-}
-
-footer li {
-    display: block;
-}
-
-.copyright {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    border-top: 1px solid #d1c9bf;
-    text-align: center;
-}
-
-@media (max-width: 768px) {
-    .banner {
-        padding: 18px;
-    }
-
-    footer ul {
-        flex-direction: column;
-        gap: 4px;
-    }
-}
-/* =========================
-   TELEFONY
-   ========================= */
-
-@media (max-width: 480px) {
-    .content {
-        padding-right: 12px;
-        padding-left: 12px;
-    }
-
-    .banner {
-        padding: 18px;
-    }
-
-    .kolumna {
-        padding: 18px;
+    main.strona-glowna > .banner,
+    main.strona-glowna > .pozostale,
+    main.strona-glowna > .kolumna {
+        flex: none;
     }
 
     nav ul {
-        gap: 0 18px;
-    }
-
-    footer ul {
         flex-direction: column;
-        gap: 4px;
     }
 
-    .copyright {
-        padding: 10px 6px;
+    nav li {
+        margin-bottom: 5px;
+    }
+
+    nav a {
+        padding: 20px;
+        text-align: center;
+    }
+}
+
+/* 9. Animacja najechania tylko na urządzeniach obsługujących kursor. */
+@media (hover: hover) {
+    nav a:hover {
+        background-color: #d0e7df;
+        transform: scale(1.05);
+        text-decoration: none;
+    }
+}
+
+/* Uwzględnienie wyłączonych animacji w ustawieniach użytkownika. */
+@media (prefers-reduced-motion: reduce) {
+    nav a {
+        transition: none;
+    }
+
+    nav a:hover {
+        transform: none;
     }
 }
