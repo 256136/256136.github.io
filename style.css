@@ -1,4 +1,4 @@
-/* Ćwiczenie 3: Flexbox, responsywność i animacja menu.
+/* Ćwiczenia 3 i 4: Flexbox, responsywność oraz rozwijane menu.
    Stonowana zieleń, chłodne jasne tło i białe sekcje. */
 
 /* 1. Reset domyślnych odstępów przeglądarki. */
@@ -52,6 +52,34 @@ nav {
     border-top: 1px solid #c9ded7;
     border-bottom: 1px solid #c9ded7;
 }
+/* Przycisk mobilny: ukryty na komputerze. */
+#menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    margin: 8px 0 8px auto;
+    padding: 10px 16px;
+    border: 1px solid #215b4e;
+    border-radius: 4px;
+    background-color: #215b4e;
+    color: #ffffff;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.menu-ikona {
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+#menu-toggle:focus-visible {
+    outline: 3px solid #215b4e;
+    outline-offset: 3px;
+}
+
 
 nav ul {
     list-style: none;
@@ -238,8 +266,22 @@ footer {
         flex: none;
     }
 
+    /* Bez JavaScript menu pozostaje widoczne. Po uruchomieniu skryptu
+       pokazuje się przycisk, a klasa active rozwija listę odnośników. */
+    #menu-toggle:not([hidden]) {
+        display: flex;
+    }
+
     nav ul {
         flex-direction: column;
+    }
+
+    nav ul.js-gotowe {
+        display: none;
+    }
+
+    nav ul.js-gotowe.active {
+        display: flex;
     }
 
     nav li {
@@ -254,6 +296,11 @@ footer {
 
 /* 9. Animacja najechania tylko na urządzeniach obsługujących kursor. */
 @media (hover: hover) {
+    #menu-toggle:hover {
+        background-color: #174538;
+        transform: scale(1.03);
+    }
+
     nav a:hover {
         background-color: #d0e7df;
         transform: scale(1.05);
@@ -263,11 +310,13 @@ footer {
 
 /* Uwzględnienie wyłączonych animacji w ustawieniach użytkownika. */
 @media (prefers-reduced-motion: reduce) {
-    nav a {
+    nav a,
+    #menu-toggle {
         transition: none;
     }
 
-    nav a:hover {
+    nav a:hover,
+    #menu-toggle:hover {
         transform: none;
     }
 }

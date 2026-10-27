@@ -7,7 +7,7 @@
     <meta name="description" content="Produkcję energii z OZE ograniczają warunki naturalne, wymagania techniczne oraz wpływ instalacji na otoczenie.">
     <meta name="keywords" content="OZE, energia słoneczna, energia wiatrowa, energia wodna, geotermia, biomasa, biogaz">
     <title>Ograniczenia odnawialnych źródeł energii | EkoEnergia</title>
-    <link rel="stylesheet" href="style.css?v=7">
+    <link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
     <header>
@@ -19,7 +19,13 @@
 
     <nav aria-label="Menu główne">
         <div class="content">
-            <ul>
+            <!-- Przycisk jest widoczny na telefonie po uruchomieniu skryptu. -->
+            <button id="menu-toggle" type="button" aria-controls="menu-glowne"
+                    aria-expanded="false" aria-label="Otwórz menu" hidden>
+                <span class="menu-ikona" aria-hidden="true">&#9776;</span>
+                <span>Menu</span>
+            </button>
+            <ul class="menu" id="menu-glowne">
                 <li><a href="index.html">Strona główna</a></li>
                 <li><a href="rodzaje.html">Rodzaje</a></li>
                 <li><a href="korzysci.html">Korzyści</a></li>
@@ -80,5 +86,38 @@
         </div>
         <div class="copyright">&#169; 2026 EkoEnergia. Projekt edukacyjny.</div>
     </footer>
+    <!-- Ćwiczenie 4: otwieranie i zamykanie menu na telefonie. -->
+    <script>
+        const hamburger = document.querySelector("#menu-toggle");
+        const menu = document.querySelector(".menu");
+
+        // Dopiero po uruchomieniu JavaScript można ukryć menu mobilne.
+        // Bez skryptu zwykłe odnośniki nadal pozostają dostępne.
+        menu.classList.add("js-gotowe");
+        hamburger.hidden = false;
+
+        function zmienMenu() {
+            const otwarte = menu.classList.toggle("active");
+            hamburger.setAttribute("aria-expanded", String(otwarte));
+            hamburger.setAttribute("aria-label", otwarte ? "Zamknij menu" : "Otwórz menu");
+        }
+
+        hamburger.addEventListener("click", zmienMenu);
+
+        // Escape zamyka otwarte menu i przenosi fokus do przycisku.
+        window.addEventListener("keydown", function (zdarzenie) {
+            if (zdarzenie.key === "Escape" && menu.classList.contains("active")) {
+                zmienMenu();
+                hamburger.focus();
+            }
+        });
+
+        // Po powiększeniu okna mobilne menu wraca do stanu zamkniętego.
+        window.addEventListener("resize", function () {
+            if (window.innerWidth > 768 && menu.classList.contains("active")) {
+                zmienMenu();
+            }
+        });
+    </script>
 </body>
 </html>
