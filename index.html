@@ -7,7 +7,7 @@
     <meta name="description" content="Odnawialne źródła energii (OZE) wykorzystują zasoby odtwarzające się w naturalnych procesach. Należą do nich energia słoneczna, wiatrowa, wodna, geotermalna oraz energia z biomasy.">
     <meta name="keywords" content="OZE, energia słoneczna, energia wiatrowa, energia wodna, geotermia, biomasa, biogaz">
     <title>Strona główna | EkoEnergia</title>
-    <link rel="stylesheet" href="style.css?v=9">
+    <link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
     <header>
@@ -19,7 +19,6 @@
 
     <nav aria-label="Menu główne">
         <div class="content">
-            
             <button id="menu-toggle" type="button" aria-controls="menu-glowne"
                     aria-expanded="false" aria-label="Otwórz menu" hidden>
                 <span class="menu-ikona" aria-hidden="true">&#9776;</span>
@@ -40,8 +39,6 @@
             <h1>Odnawialne źródła energii</h1>
             <p>Odnawialne źródła energii (OZE) wykorzystują zasoby odtwarzające się w naturalnych procesach. Należą do nich energia słoneczna, wiatrowa, wodna, geotermalna oraz energia z biomasy.</p>
         </div>
-
-        
         <section class="kolumna">
             <h2>Energia słoneczna</h2>
             <img class="zdjecie-energii" src="images/energia-sloneczna.png" alt="Panele fotowoltaiczne oświetlone promieniami słońca" width="840" height="480">
@@ -88,12 +85,9 @@
         </div>
         <div class="copyright">&#169; 2026 EkoEnergia. Projekt edukacyjny.</div>
     </footer>
-    
     <script>
         const hamburger = document.querySelector("#menu-toggle");
         const menu = document.querySelector(".menu");
-
-        
         menu.classList.add("js-gotowe");
         hamburger.hidden = false;
 
@@ -104,15 +98,12 @@
         }
 
         hamburger.addEventListener("click", zmienMenu);
-        
         window.addEventListener("keydown", function (zdarzenie) {
             if (zdarzenie.key === "Escape" && menu.classList.contains("active")) {
                 zmienMenu();
                 hamburger.focus();
             }
         });
-
-    
         window.addEventListener("resize", function () {
             if (window.innerWidth > 768 && menu.classList.contains("active")) {
                 zmienMenu();

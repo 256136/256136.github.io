@@ -7,7 +7,7 @@
     <meta name="description" content="Produkcję energii z OZE ograniczają warunki naturalne, wymagania techniczne oraz wpływ instalacji na otoczenie.">
     <meta name="keywords" content="OZE, energia słoneczna, energia wiatrowa, energia wodna, geotermia, biomasa, biogaz">
     <title>Ograniczenia odnawialnych źródeł energii | EkoEnergia</title>
-    <link rel="stylesheet" href="style.css?v=9">
+    <link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
     <header>
@@ -19,7 +19,6 @@
 
     <nav aria-label="Menu główne">
         <div class="content">
-            
             <button id="menu-toggle" type="button" aria-controls="menu-glowne"
                     aria-expanded="false" aria-label="Otwórz menu" hidden>
                 <span class="menu-ikona" aria-hidden="true">&#9776;</span>
@@ -43,12 +42,18 @@
 
         <section class="tekst">
             <h2>Zależność od pogody</h2>
+            <figure class="fotografia tematyczna">
+                <img src="images/ograniczenia-pogoda.jpg" alt="Turbiny wiatrowe pod zachmurzonym niebem" width="1280" height="853" loading="lazy">
+            </figure>
             <p>Produkcja z fotowoltaiki zmienia się wraz z nasłonecznieniem, a z turbin wiatrowych wraz z prędkością wiatru.
                 Fotowoltaika nie produkuje prądu nocą. Elektrownie wodne zależą od ilości dostępnej wody.</p>
         </section>
 
         <section class="tekst">
             <h2>Bilansowanie i magazynowanie energii</h2>
+            <figure class="fotografia tematyczna">
+                <img src="images/ograniczenia-magazyn.jpg" alt="Kontenerowy magazyn energii elektrycznej" width="1280" height="960" loading="lazy">
+            </figure>
             <p>Produkcja prądu musi być dostosowana do zapotrzebowania odbiorców.
                 Zmienna praca części OZE wymaga odpowiedniej sieci, elastycznych źródeł, magazynów energii lub regulacji zużycia.</p>
         </section>
@@ -86,12 +91,9 @@
         </div>
         <div class="copyright">&#169; 2026 EkoEnergia. Projekt edukacyjny.</div>
     </footer>
-   
     <script>
         const hamburger = document.querySelector("#menu-toggle");
         const menu = document.querySelector(".menu");
-
-       
         menu.classList.add("js-gotowe");
         hamburger.hidden = false;
 
@@ -102,15 +104,12 @@
         }
 
         hamburger.addEventListener("click", zmienMenu);
-
-
         window.addEventListener("keydown", function (zdarzenie) {
             if (zdarzenie.key === "Escape" && menu.classList.contains("active")) {
                 zmienMenu();
                 hamburger.focus();
             }
         });
-
         window.addEventListener("resize", function () {
             if (window.innerWidth > 768 && menu.classList.contains("active")) {
                 zmienMenu();

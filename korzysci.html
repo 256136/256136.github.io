@@ -7,7 +7,7 @@
     <meta name="description" content="Wykorzystanie odnawialnych źródeł energii może ograniczać zużycie paliw kopalnych i wspierać lokalną produkcję energii.">
     <meta name="keywords" content="OZE, energia słoneczna, energia wiatrowa, energia wodna, geotermia, biomasa, biogaz">
     <title>Korzyści z wykorzystania OZE | EkoEnergia</title>
-    <link rel="stylesheet" href="style.css?v=9">
+    <link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
     <header>
@@ -19,7 +19,6 @@
 
     <nav aria-label="Menu główne">
         <div class="content">
-            
             <button id="menu-toggle" type="button" aria-controls="menu-glowne"
                     aria-expanded="false" aria-label="Otwórz menu" hidden>
                 <span class="menu-ikona" aria-hidden="true">&#9776;</span>
@@ -43,6 +42,9 @@
 
         <section class="tekst">
             <h2>Ograniczenie emisji</h2>
+            <figure class="fotografia tematyczna">
+                <img src="images/korzysci-wiatr.jpg" alt="Turbiny wiatrowe na polu" width="940" height="627" loading="lazy">
+            </figure>
             <p>Fotowoltaika oraz elektrownie wiatrowe i wodne wytwarzają prąd bez spalania paliwa podczas pracy.
                 Zastępując część produkcji z węgla lub gazu, mogą ograniczać emisje związane z energetyką.</p>
             <p>Korzyści ocenia się z uwzględnieniem całego cyklu życia instalacji, także produkcji urządzeń i ich zagospodarowania po zużyciu.</p>
@@ -56,6 +58,9 @@
 
         <section class="tekst">
             <h2>Produkcja energii blisko odbiorcy</h2>
+            <figure class="fotografia tematyczna">
+                <img src="images/korzysci-dom.jpg" alt="Panele fotowoltaiczne na dachu domu" width="1280" height="853" loading="lazy">
+            </figure>
             <p>Instalacja fotowoltaiczna na budynku może dostarczać część energii zużywanej przez jego mieszkańców.
                 Lokalne źródła zwiększają liczbę miejsc, w których wytwarzana jest energia.</p>
         </section>
@@ -76,12 +81,9 @@
         </div>
         <div class="copyright">&#169; 2026 EkoEnergia. Projekt edukacyjny.</div>
     </footer>
-    
     <script>
         const hamburger = document.querySelector("#menu-toggle");
         const menu = document.querySelector(".menu");
-
-       
         menu.classList.add("js-gotowe");
         hamburger.hidden = false;
 
@@ -92,14 +94,12 @@
         }
 
         hamburger.addEventListener("click", zmienMenu);
-
         window.addEventListener("keydown", function (zdarzenie) {
             if (zdarzenie.key === "Escape" && menu.classList.contains("active")) {
                 zmienMenu();
                 hamburger.focus();
             }
         });
-
         window.addEventListener("resize", function () {
             if (window.innerWidth > 768 && menu.classList.contains("active")) {
                 zmienMenu();
