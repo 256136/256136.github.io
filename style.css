@@ -1,5 +1,4 @@
-/* Ćwiczenia 3 i 4: Flexbox, responsywność oraz rozwijane menu.
-   Stonowana zieleń, chłodne jasne tło i białe sekcje. */
+/* EkoEnergia: Flexbox, responsywne menu i wyśrodkowane fotografie. */
 
 /* 1. Reset domyślnych odstępów przeglądarki. */
 * {
@@ -114,8 +113,8 @@ main {
     display: flex;
     flex-direction: column;
     gap: clamp(1rem, 2vw, 3rem);
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 28px;
+    padding-bottom: 32px;
     min-width: 0;
 }
 
@@ -137,6 +136,7 @@ main.strona-glowna > .pozostale {
     padding: 22px 26px;
     background-color: #e3f0ec;
     border-left: 4px solid #2e7d6b;
+    border-radius: 0 8px 8px 0;
 }
 
 h1 {
@@ -185,20 +185,41 @@ a:focus-visible {
     padding: 20px;
     background-color: #ffffff;
     border: 1px solid #c9ded7;
-    border-radius: 8px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(35, 80, 65, 0.06);
 }
 
-.kolumna img,
-.tekst .zdjecie-energii {
+/* Zdjęcia w trzech kolumnach mają podobne proporcje. */
+.kolumna img {
     display: block;
     width: 100%;
     height: auto;
-    margin-bottom: 16px;
-    border-radius: 4px;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border-radius: 6px;
 }
 
-.tekst .zdjecie-energii {
-    max-width: 640px;
+/* Fotografie w opisach są wyśrodkowane i nie zniekształcają się. */
+.fotografia {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto 24px;
+}
+
+.fotografia img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.fotografia figcaption {
+    margin-top: 8px;
+    color: #526a64;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    text-align: center;
 }
 
 .kolumna p:last-child,
@@ -211,6 +232,39 @@ a:focus-visible {
     padding: 24px 28px;
     background-color: #ffffff;
     border: 1px solid #c9ded7;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(35, 80, 65, 0.05);
+}
+
+/* Wyrównanie tekstu do tej samej szerokości co zdjęcia. */
+.tekst > h2,
+.tekst > p,
+.tekst > ul,
+.tekst > ol {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tekst[id] {
+    scroll-margin-top: 20px;
+}
+
+/* Spis ułatwia przechodzenie między opisami sześciu rodzajów OZE. */
+.spis-tresci h2 {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.spis-tresci ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    list-style: none;
+}
+
+.spis-tresci a {
+    font-weight: bold;
 }
 
 .tekst ul,
@@ -303,7 +357,7 @@ footer {
 
     nav a:hover {
         background-color: #d0e7df;
-        transform: scale(1.05);
+        transform: translateY(-1px);
         text-decoration: none;
     }
 }
