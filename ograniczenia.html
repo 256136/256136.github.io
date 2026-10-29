@@ -19,7 +19,7 @@
 
     <nav aria-label="Menu główne">
         <div class="content">
-            <!-- Przycisk jest widoczny na telefonie po uruchomieniu skryptu. -->
+            
             <button id="menu-toggle" type="button" aria-controls="menu-glowne"
                     aria-expanded="false" aria-label="Otwórz menu" hidden>
                 <span class="menu-ikona" aria-hidden="true">&#9776;</span>
@@ -86,13 +86,12 @@
         </div>
         <div class="copyright">&#169; 2026 EkoEnergia. Projekt edukacyjny.</div>
     </footer>
-    <!-- Ćwiczenie 4: otwieranie i zamykanie menu na telefonie. -->
+   
     <script>
         const hamburger = document.querySelector("#menu-toggle");
         const menu = document.querySelector(".menu");
 
-        // Dopiero po uruchomieniu JavaScript można ukryć menu mobilne.
-        // Bez skryptu zwykłe odnośniki nadal pozostają dostępne.
+       
         menu.classList.add("js-gotowe");
         hamburger.hidden = false;
 
@@ -104,7 +103,7 @@
 
         hamburger.addEventListener("click", zmienMenu);
 
-        // Escape zamyka otwarte menu i przenosi fokus do przycisku.
+
         window.addEventListener("keydown", function (zdarzenie) {
             if (zdarzenie.key === "Escape" && menu.classList.contains("active")) {
                 zmienMenu();
@@ -112,7 +111,6 @@
             }
         });
 
-        // Po powiększeniu okna mobilne menu wraca do stanu zamkniętego.
         window.addEventListener("resize", function () {
             if (window.innerWidth > 768 && menu.classList.contains("active")) {
                 zmienMenu();
