@@ -1,6 +1,4 @@
-/* EkoEnergia: Flexbox, responsywne menu i wyśrodkowane fotografie. */
 
-/* 1. Reset domyślnych odstępów przeglądarki. */
 * {
     margin: 0;
     padding: 0;
@@ -19,14 +17,12 @@ body {
     overflow-wrap: anywhere;
 }
 
-/* Elastyczna szerokość zamiast dawnego width: 1020px.
-   Węższe okno zmienia układ, ale nie pomniejsza tekstu. */
+
 .content {
     width: min(1020px, 90%);
     margin: 0 auto;
 }
 
-/* 2. Nagłówek. */
 header {
     padding: 20px 0;
     background-color: #ffffff;
@@ -45,13 +41,13 @@ header p {
     margin-top: 3px;
 }
 
-/* 3. Poziome, wyśrodkowane menu Flexbox. */
+
 nav {
     background-color: #e3f0ec;
     border-top: 1px solid #c9ded7;
     border-bottom: 1px solid #c9ded7;
 }
-/* Przycisk mobilny: ukryty na komputerze. */
+
 #menu-toggle {
     display: none;
     align-items: center;
@@ -106,8 +102,7 @@ nav a[aria-current="page"] {
     font-weight: bold;
 }
 
-/* 4. Główna zawartość wypełnia przestrzeń nad stopką.
-   Na podstronach opisy są ułożone pionowo. */
+
 main {
     flex: 1;
     display: flex;
@@ -118,8 +113,7 @@ main {
     min-width: 0;
 }
 
-/* Na stronie głównej baner zajmuje cały rząd,
-   a trzy sekcje poniżej są równymi kolumnami Flexbox. */
+
 main.strona-glowna {
     flex-direction: row;
     flex-wrap: wrap;
@@ -178,7 +172,7 @@ a:focus-visible {
     outline-offset: 3px;
 }
 
-/* 5. Trzy równe kolumny, bez stałych szerokości i wysokości. */
+
 .kolumna {
     flex: 1;
     min-width: 0;
@@ -189,7 +183,7 @@ a:focus-visible {
     box-shadow: 0 4px 16px rgba(35, 80, 65, 0.06);
 }
 
-/* Zdjęcia w trzech kolumnach mają podobne proporcje. */
+
 .kolumna img {
     display: block;
     width: 100%;
@@ -200,7 +194,7 @@ a:focus-visible {
     border-radius: 6px;
 }
 
-/* Fotografie w opisach są wyśrodkowane i nie zniekształcają się. */
+
 .fotografia {
     width: 100%;
     max-width: 760px;
@@ -236,7 +230,6 @@ a:focus-visible {
     box-shadow: 0 4px 16px rgba(35, 80, 65, 0.05);
 }
 
-/* Wyrównanie tekstu do tej samej szerokości co zdjęcia. */
 .tekst > h2,
 .tekst > p,
 .tekst > ul,
@@ -250,7 +243,6 @@ a:focus-visible {
     scroll-margin-top: 20px;
 }
 
-/* Spis ułatwia przechodzenie między opisami sześciu rodzajów OZE. */
 .spis-tresci h2 {
     margin-bottom: 10px;
     font-size: 1rem;
@@ -284,7 +276,6 @@ a:focus-visible {
     margin: 5px 0 0;
 }
 
-/* 6. Stopka pozostaje przy dole również na krótkich stronach. */
 footer {
     padding-top: 15px;
     border-top: 1px solid #c9ded7;
@@ -306,8 +297,6 @@ footer {
     border-top: 1px solid #c9ded7;
 }
 
-/* 7 i 8. Na węższym ekranie sekcje i menu przechodzą pod siebie.
-   Rozmiar tekstu się nie zmienia; przyciski mają większe odstępy. */
 @media (max-width: 768px) {
     main.strona-glowna {
         flex-direction: column;
@@ -320,8 +309,6 @@ footer {
         flex: none;
     }
 
-    /* Bez JavaScript menu pozostaje widoczne. Po uruchomieniu skryptu
-       pokazuje się przycisk, a klasa active rozwija listę odnośników. */
     #menu-toggle:not([hidden]) {
         display: flex;
     }
@@ -348,7 +335,6 @@ footer {
     }
 }
 
-/* 9. Animacja najechania tylko na urządzeniach obsługujących kursor. */
 @media (hover: hover) {
     #menu-toggle:hover {
         background-color: #174538;
@@ -362,7 +348,6 @@ footer {
     }
 }
 
-/* Uwzględnienie wyłączonych animacji w ustawieniach użytkownika. */
 @media (prefers-reduced-motion: reduce) {
     nav a,
     #menu-toggle {
