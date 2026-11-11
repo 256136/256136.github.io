@@ -7,7 +7,8 @@
     <meta name="description" content="Odnawialne źródła energii (OZE) wykorzystują zasoby odtwarzające się w naturalnych procesach. Należą do nich energia słoneczna, wiatrowa, wodna, geotermalna oraz energia z biomasy.">
     <meta name="keywords" content="OZE, energia słoneczna, energia wiatrowa, energia wodna, geotermia, biomasa, biogaz">
     <title>Strona główna | EkoEnergia</title>
-    <link rel="stylesheet" href="style.css?v=11">
+    <link rel="stylesheet" href="style.css?v=14">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
 <body>
     <header>
@@ -47,48 +48,45 @@
             <h1>Odnawialne źródła energii</h1>
             <p>Odnawialne źródła energii (OZE) wykorzystują zasoby odtwarzające się w naturalnych procesach. Należą do nich energia słoneczna, wiatrowa, wodna, geotermalna oraz energia z biomasy.</p>
         </div>
-        <section class="kolumna">
-            <h2>Energia słoneczna</h2>
-            <img class="zdjecie-energii" src="images/energia-sloneczna.png" alt="Panele fotowoltaiczne oświetlone promieniami słońca" width="840" height="480">
-            <p>Panele fotowoltaiczne przekształcają promieniowanie słoneczne w energię elektryczną.
-                Kolektory słoneczne wykorzystują je do podgrzewania wody.</p>
-            <h3>Zastosowanie</h3>
-            <p>Instalacje na dachach budynków oraz farmy fotowoltaiczne. Produkcja prądu zależy od ilości światła docierającego do paneli.</p>
-            <p><a href="rodzaje.html#slonce">Opis energii słonecznej</a></p>
-        </section>
-
-        <section class="kolumna">
-            <h2>Energia wiatrowa</h2>
-            <img class="zdjecie-energii" src="images/energia-wiatrowa.png" alt="Turbiny wiatrowe na otwartym terenie" width="1200" height="800">
-            <p>Wiatr obraca łopaty turbiny, a połączony z nią generator wytwarza energię elektryczną.
-                Elektrownie wiatrowe buduje się na lądzie i na morzu.</p>
-            <h3>Zastosowanie</h3>
-            <p>Dostarczanie prądu do sieci energetycznej. Ilość produkowanej energii zależy od warunków wiatrowych w danej lokalizacji.</p>
-            <p><a href="rodzaje.html#wiatr">Opis energii wiatrowej</a></p>
-        </section>
-
-        <section class="kolumna">
-            <h2>Energia wodna</h2>
-            <img class="zdjecie-energii" src="images/energia-wodna.png" alt="Zapora z przepływającą wodą" width="921" height="553">
-            <p>Przepływająca woda napędza turbinę połączoną z generatorem.
-                Elektrownie wykorzystują przepływ rzeki i różnicę poziomów wody.</p>
-            <h3>Zastosowanie</h3>
-            <p>Produkcja prądu w elektrowniach przepływowych i zbiornikowych. Wielkość produkcji zależy między innymi od dostępności wody.</p>
-            <p><a href="rodzaje.html#woda">Opis energii wodnej</a></p>
-        </section>
-
-        <p class="pozostale">Pozostałe rodzaje OZE:
-            <a href="rodzaje.html#geotermia">energia geotermalna</a>,
-            <a href="rodzaje.html#biomasa">biomasa</a> i
-            <a href="rodzaje.html#biogaz">biogaz</a>.
-        </p>
-        <section class="odkryj-mape">
-            <div>
-                <span class="etykieta">ENERGIA W PRAKTYCE</span>
-                <h2>Sprawdź, jak wygląda OZE w Polsce</h2>
-                <p>Odkryj duże instalacje na mapie i zobacz, jakie warunki dla słońca i wiatru panują w polskich miastach.</p>
+        <section class="kolumna kolumna-glowna" aria-labelledby="tytul-pogody-glownej">
+            <p class="etykieta">NA BIEŻĄCO</p>
+            <h2 id="tytul-pogody-glownej">Pogoda a energia</h2>
+            <p class="opis-kolumny">Sprawdź warunki dla słońca i wiatru w swoim mieście.</p>
+            <div class="wybor-filtra wybor-miasta-glownego">
+                <label for="miasto-glowna">Wybierz miasto</label>
+                <select id="miasto-glowna"><option value="2">Łódź</option></select>
             </div>
-            <a class="przycisk-link" href="mapa-pogoda.html">Otwórz mapę i pogodę <span aria-hidden="true">→</span></a>
+            <p class="stan-glowny" id="pogoda-glowna-status" role="status" aria-live="polite">Pobieranie pogody…</p>
+            <div id="pogoda-glowna-karta"></div>
+            <noscript><p>Włącz JavaScript, aby zobaczyć aktualną pogodę.</p></noscript>
+            <p class="podpis-glowny">Dane modelowe Open-Meteo. Wiatr na wysokości 10 m; ocena warunków jest orientacyjna.</p>
+            <a class="link-kolumny" href="mapa-pogoda.html#pogoda-tytul">Porównaj wszystkie miasta <span aria-hidden="true">→</span></a>
+        </section>
+
+        <section class="kolumna kolumna-glowna" aria-labelledby="tytul-mapy-glownej">
+            <p class="etykieta">OD MORZA PO GÓRY</p>
+            <h2 id="tytul-mapy-glownej">Energia na mapie</h2>
+            <p class="opis-kolumny">Odkryj wybrane duże instalacje OZE w Polsce. Kliknij punkt na mapie.</p>
+            <div id="mapa-glowna" class="mapa-glowna" aria-label="Interaktywna mapa wybranych instalacji energetycznych w Polsce"></div>
+            <p class="stan-glowny" id="mapa-glowna-status" role="status">Wczytywanie mapy…</p>
+            <noscript><p>Włącz JavaScript, aby zobaczyć mapę.</p></noscript>
+            <p class="podpis-glowny">Lokalizacje punktów są przybliżone.</p>
+            <a class="link-kolumny" href="mapa-pogoda.html#mapa-tytul">Otwórz pełną mapę <span aria-hidden="true">→</span></a>
+        </section>
+
+        <section class="kolumna kolumna-glowna" aria-labelledby="tytul-rodzajow-glownej">
+            <p class="etykieta">POZNAJ ŹRÓDŁA</p>
+            <h2 id="tytul-rodzajow-glownej">Rodzaje energii</h2>
+            <p class="opis-kolumny">Zobacz, skąd pochodzi energia i jak można ją wykorzystać.</p>
+            <ul class="skrot-rodzajow">
+                <li><a href="rodzaje.html#slonce"><span class="znak-energii znak-slonce" aria-hidden="true">☼</span><span><strong>Słoneczna</strong><small>Światło i ciepło ze słońca</small></span><span class="strzalka" aria-hidden="true">→</span></a></li>
+                <li><a href="rodzaje.html#wiatr"><span class="znak-energii znak-wiatr" aria-hidden="true">↝</span><span><strong>Wiatrowa</strong><small>Energia poruszającego się powietrza</small></span><span class="strzalka" aria-hidden="true">→</span></a></li>
+                <li><a href="rodzaje.html#woda"><span class="znak-energii znak-woda" aria-hidden="true">≈</span><span><strong>Wodna</strong><small>Przepływ i spadek wody</small></span><span class="strzalka" aria-hidden="true">→</span></a></li>
+                <li><a href="rodzaje.html#geotermia"><span class="znak-energii znak-geotermia" aria-hidden="true">♨</span><span><strong>Geotermalna</strong><small>Ciepło wnętrza Ziemi</small></span><span class="strzalka" aria-hidden="true">→</span></a></li>
+                <li><a href="rodzaje.html#biomasa"><span class="znak-energii znak-biomasa" aria-hidden="true">✳</span><span><strong>Biomasa</strong><small>Materiały pochodzenia organicznego</small></span><span class="strzalka" aria-hidden="true">→</span></a></li>
+                <li><a href="rodzaje.html#biogaz"><span class="znak-energii znak-biogaz" aria-hidden="true">○</span><span><strong>Biogaz</strong><small>Energia z rozkładu materii organicznej</small></span><span class="strzalka" aria-hidden="true">→</span></a></li>
+            </ul>
+            <a class="link-kolumny" href="rodzaje.html">Poznaj wszystkie rodzaje <span aria-hidden="true">→</span></a>
         </section>
     </main>
 
@@ -126,5 +124,8 @@
             }
         });
     </script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="oze-wspolne.js?v=2"></script>
+    <script src="strona-glowna.js?v=2"></script>
 </body>
 </html>

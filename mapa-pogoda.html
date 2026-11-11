@@ -7,7 +7,7 @@
     <meta name="description" content="Mapa wybranych dużych instalacji OZE w Polsce oraz aktualna pogoda dla miast wojewódzkich.">
     <meta name="keywords" content="OZE, energia słoneczna, energia wiatrowa, energia wodna, geotermia, biomasa, biogaz">
     <title>Mapa i pogoda | EkoEnergia</title>
-    <link rel="stylesheet" href="style.css?v=12">
+    <link rel="stylesheet" href="style.css?v=14">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
 <body>
@@ -75,12 +75,8 @@
             <div class="legenda-mapy" aria-label="Legenda mapy">
                 <span><i class="kropka slonce"></i>Słońce</span><span><i class="kropka wiatr"></i>Wiatr</span><span><i class="kropka woda"></i>Woda</span><span><i class="kropka biomasa"></i>Biomasa</span><span><i class="kropka biogaz"></i>Biogaz</span><span><i class="kropka geotermia"></i>Geotermia</span>
             </div>
-            <p class="drobny-tekst">To wybór dużych obiektów, nie pełny ranking. Punkty wskazują przybliżoną lokalizację. Moc zainstalowana nie oznacza bieżącej produkcji. Dane o obiektach zweryfikowano w listopadzie 2026 r.</p>
-            <details class="lista-obiektow">
-                <summary>Lista obiektów i źródła danych</summary>
-                <ul id="obiekty-lista"></ul>
-            </details>
-            <noscript><p>Włącz JavaScript, aby zobaczyć interaktywną mapę i listę obiektów.</p></noscript>
+            <p class="drobny-tekst">To wybór dużych obiektów, nie pełny ranking. Punkty wskazują przybliżoną lokalizację. Moc zainstalowana nie oznacza bieżącej produkcji.</p>
+            <noscript><p>Włącz JavaScript, aby zobaczyć interaktywną mapę.</p></noscript>
         </section>
 
         <section class="panel-pogody" aria-labelledby="pogoda-tytul">
@@ -101,11 +97,6 @@
             <p class="status-pogody" id="status-pogody" role="status" aria-live="polite">Pobieranie danych pogodowych…</p>
             <div class="miasta" id="miasta"></div>
             <noscript><p>Włącz JavaScript, aby pobrać aktualną pogodę.</p></noscript>
-            <div class="objasnienie-pogody">
-                <p><strong>Jak czytać ocenę?</strong> To orientacyjne porównanie warunków, a nie pomiar produkcji elektrowni. Promieniowanie dotyczy powierzchni poziomej, a wiatr jest podany na wysokości 10 m. Na wysokości turbiny może wiać inaczej; znaczenie mają też konstrukcja i lokalizacja instalacji. Tempo animacji wiatraka jest umowne i nie oznacza rzeczywistej prędkości obrotowej turbiny.</p>
-                <p>Przyjęte orientacyjnie progi: słońce poniżej 150 W/m² — słabe, od 150 do poniżej 500 — umiarkowane, od 500 — dobre; wiatr poniżej 2 m/s — słaby, od 2 do poniżej 5 — umiarkowany, od 5 do poniżej 12 — sprzyjający, od 12 — silny.</p>
-                <p>Dane modelowe: <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>. Odświeżamy je automatycznie co 15 minut. Godzina na kartach oznacza czas danych, nie czas otwarcia strony.</p>
-            </div>
         </section>
     </main>
 
@@ -144,6 +135,7 @@
         });
     </script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="mapa-pogoda.js?v=2"></script>
+    <script src="oze-wspolne.js?v=2"></script>
+    <script src="mapa-pogoda.js?v=4"></script>
 </body>
 </html>
