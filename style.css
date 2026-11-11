@@ -50,7 +50,7 @@ nav {
     align-items: center;
     gap: 10px;
     min-height: 44px;
-    margin: 8px 0 8px auto;
+    margin: 8px auto 8px 0;
     padding: 10px 16px;
     border: 1px solid #215b4e;
     border-radius: 4px;
@@ -115,7 +115,8 @@ main.strona-glowna {
 }
 
 main.strona-glowna > .banner,
-main.strona-glowna > .pozostale {
+main.strona-glowna > .pozostale,
+main.strona-glowna > .odkryj-mape {
     flex-basis: 100%;
     min-width: 0;
 }
@@ -344,6 +345,551 @@ footer {
 
     nav a:hover,
     #menu-toggle:hover {
+        transform: none;
+    }
+}
+
+.baner-krajobraz {
+    display: flex;
+    align-items: flex-end;
+    min-height: clamp(150px, 20vw, 230px);
+    background-color: #6b8c78;
+    background-image: linear-gradient(90deg, rgba(20, 49, 40, 0.68), rgba(20, 49, 40, 0.12) 48%, transparent 75%), url("images/baner-oze.jpg");
+    background-position: center, center 55%;
+    background-size: cover;
+}
+
+.baner-krajobraz-tresc {
+    padding-top: 24px;
+    padding-bottom: 23px;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.42);
+}
+
+.baner-krajobraz-tresc span,
+.etykieta {
+    color: #2c705c;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.baner-krajobraz-tresc span {
+    color: #eef8e7;
+}
+
+.baner-krajobraz-tresc p {
+    margin: 5px 0 0;
+    font-size: clamp(1.35rem, 2.3vw, 2rem);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.odkryj-mape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 26px 30px;
+    border: 1px solid #c9ded7;
+    border-radius: 10px;
+    background: #e4f0e9;
+}
+
+.odkryj-mape h2 {
+    margin: 3px 0 8px;
+}
+
+.odkryj-mape p {
+    margin-bottom: 0;
+    max-width: 610px;
+}
+
+.przycisk-link,
+.przycisk-odswiez {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 46px;
+    padding: 10px 16px;
+    border: 1px solid #215b4e;
+    border-radius: 6px;
+    background: #215b4e;
+    color: white;
+    font: inherit;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.przycisk-link:hover,
+.przycisk-odswiez:hover {
+    background: #174538;
+    color: white;
+    text-decoration: none;
+}
+
+.przycisk-odswiez:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.panel-mapy,
+.panel-pogody {
+    min-width: 0;
+    padding: clamp(18px, 3vw, 28px);
+    border: 1px solid #d0e0da;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(35, 80, 65, 0.05);
+}
+
+.sekcja-naglowek {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px 25px;
+    margin-bottom: 20px;
+}
+
+.sekcja-naglowek .etykieta {
+    margin: 0 0 4px;
+}
+
+.sekcja-naglowek h2 {
+    margin: 0 0 4px;
+    font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+}
+
+.sekcja-naglowek p:not(.etykieta) {
+    margin: 0;
+}
+
+.wybor-filtra {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 180px;
+}
+
+.wybor-filtra label {
+    font-size: 0.86rem;
+    font-weight: 700;
+}
+
+.wybor-filtra select {
+    width: 100%;
+    min-height: 44px;
+    padding: 8px 35px 8px 12px;
+    border: 1px solid #a4c2b5;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #253b3a;
+    font: inherit;
+}
+
+.mapa {
+    z-index: 0;
+    width: 100%;
+    height: clamp(330px, 55vw, 480px);
+    border: 1px solid #c9ded7;
+    border-radius: 8px;
+    background: #e4eee9;
+}
+
+.leaflet-popup-content {
+    max-width: 240px;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+
+.leaflet-popup-content p {
+    margin: 6px 0;
+}
+
+.leaflet-popup-content strong {
+    font-size: 1rem;
+}
+
+.ikona-mapy {
+    background: none;
+    border: none;
+}
+
+.znacznik {
+    display: flex;
+    width: 31px;
+    height: 31px;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    border-radius: 50% 50% 50% 10%;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35);
+    font: bold 13px Arial, sans-serif;
+    transform: rotate(-45deg);
+}
+
+.znacznik span {
+    transform: rotate(45deg);
+}
+
+.znacznik--slonce, .kropka.slonce { background: #aa6807; }
+.znacznik--wiatr, .kropka.wiatr { background: #257b83; }
+.znacznik--woda, .kropka.woda { background: #3b66a0; }
+.znacznik--biomasa, .kropka.biomasa { background: #60813b; }
+.znacznik--biogaz, .kropka.biogaz { background: #78508b; }
+.znacznik--geotermia, .kropka.geotermia { background: #a55845; }
+
+.informacja-mapy,
+.status-pogody,
+.drobny-tekst {
+    margin: 12px 0 0;
+    color: #4e6460;
+    font-size: 0.9rem;
+}
+
+.legenda-mapy {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin-top: 12px;
+    font-size: 0.85rem;
+}
+
+.legenda-mapy span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.kropka {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+}
+
+.lista-obiektow {
+    margin-top: 16px;
+    padding: 13px 16px;
+    border: 1px solid #d8e6df;
+    border-radius: 6px;
+    background: #f8fbf9;
+}
+
+.lista-obiektow summary {
+    color: #215b4e;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.lista-obiektow ul {
+    margin: 10px 0 0;
+    padding-left: 20px;
+}
+
+.lista-obiektow li {
+    margin: 9px 0;
+}
+
+.pogoda-kontrolki {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.status-pogody {
+    min-height: 1.5em;
+    margin: 0 0 14px;
+}
+
+.miasta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.karta-pogody {
+    flex: 1 1 245px;
+    min-width: 0;
+    max-width: 320px;
+    padding: 17px;
+    border: 1px solid #d7e7df;
+    border-radius: 8px;
+    background: #f7fbf9;
+}
+
+.karta-pogody h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.karta-pogody .warunki {
+    margin: 1px 0 14px;
+    color: #546a64;
+    font-size: 0.9rem;
+}
+
+.parametr {
+    padding: 11px 0;
+    border-top: 1px solid #dce9e3;
+}
+
+.parametr-naglowek {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 2px 8px;
+}
+
+.parametr-naglowek strong {
+    color: #253b3a;
+    font-size: 0.9rem;
+}
+
+.parametr-naglowek span {
+    font-weight: 700;
+}
+
+.ocena {
+    display: inline-block;
+    margin-top: 4px;
+    color: #315b4c;
+    font-size: 0.86rem;
+}
+
+.ocena.slabiej { color: #795729; }
+.ocena.uwaga { color: #945140; }
+
+.karta-czas {
+    margin: 5px 0 0;
+    color: #5b706b;
+    font-size: 0.78rem;
+}
+
+.objasnienie-pogody {
+    margin-top: 18px;
+    padding: 15px 18px;
+    border-left: 3px solid #7fae96;
+    background: #edf6f0;
+    color: #405a50;
+    font-size: 0.88rem;
+}
+
+.objasnienie-pogody p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .baner-krajobraz {
+        min-height: 145px;
+        background-position: center, 54% 55%;
+    }
+
+    .odkryj-mape {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 22px;
+    }
+
+    .sekcja-naglowek,
+    .pogoda-kontrolki {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .wybor-filtra {
+        width: 100%;
+    }
+
+    .mapa {
+        height: 340px;
+    }
+}
+
+.pogoda-naglowek {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 62px;
+    margin-bottom: 10px;
+}
+
+.pogoda-naglowek > div {
+    min-width: 0;
+}
+
+.karta-pogody .pogoda-naglowek .warunki {
+    margin: 3px 0 0;
+}
+
+.ikona-pogody {
+    width: 72px;
+    height: 58px;
+    flex: 0 0 72px;
+    overflow: visible;
+}
+
+.brak-ikony {
+    width: 72px;
+    flex: 0 0 72px;
+    color: #799087;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.pogoda-slonce {
+    fill: #efb641;
+    stroke: #df9f25;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    transform-origin: 29px 25px;
+    animation: slonce-oddech 3.2s ease-in-out infinite;
+}
+
+.pogoda-slonce path {
+    fill: none;
+}
+
+.pogoda-ksiezyc {
+    fill: #d1bc78;
+}
+
+.pogoda-chmura {
+    fill: #e0ece8;
+    stroke: #9fbab1;
+    stroke-width: 1.5;
+    animation: chmura-plyn 4s ease-in-out infinite;
+}
+
+.pogoda-deszcz,
+.pogoda-mgla {
+    fill: none;
+    stroke: #6ea7ad;
+    stroke-width: 2.4;
+    stroke-linecap: round;
+}
+
+.pogoda-deszcz {
+    animation: deszcz-pada 1.6s ease-in-out infinite;
+}
+
+.pogoda-snieg {
+    fill: #91b9c0;
+    animation: snieg-pada 3s ease-in-out infinite;
+}
+
+.pogoda-mgla {
+    animation: chmura-plyn 4s ease-in-out infinite;
+}
+
+.pogoda-blysk {
+    fill: #d6a037;
+}
+
+.parametr-wiatrowy {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.wiatr-opis {
+    min-width: 0;
+    flex: 1;
+}
+
+.ikona-wiatraka {
+    width: 46px;
+    height: 54px;
+    flex: 0 0 46px;
+    overflow: visible;
+}
+
+.wiatrak-grunt {
+    fill: none;
+    stroke: #aac5b7;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+.wiatrak-wieza,
+.wiatrak-lopata {
+    fill: #f9fcfa;
+    stroke: #579485;
+    stroke-width: 1.5;
+    stroke-linejoin: round;
+}
+
+.wiatrak-srodek {
+    fill: #397b6d;
+}
+
+.wiatrak-wirnik {
+    transform-box: view-box;
+    transform-origin: 32px 24px;
+    animation: wiatrak-obrot var(--czas-obrotu, 20s) linear infinite;
+}
+
+.wiatrak-wirnik.bez-wiatru {
+    animation: none;
+}
+
+@keyframes slonce-oddech {
+    0%, 100% { opacity: 0.78; transform: scale(0.94); }
+    50% { opacity: 1; transform: scale(1.04); }
+}
+
+@keyframes chmura-plyn {
+    0%, 100% { transform: translateX(-2px); }
+    50% { transform: translateX(3px); }
+}
+
+@keyframes deszcz-pada {
+    0% { opacity: 0.3; transform: translateY(-2px); }
+    45% { opacity: 1; }
+    100% { opacity: 0.3; transform: translateY(3px); }
+}
+
+@keyframes snieg-pada {
+    0%, 100% { opacity: 0.7; transform: translate(0, -1px); }
+    50% { opacity: 1; transform: translate(2px, 2px); }
+}
+
+@keyframes wiatrak-obrot {
+    to { transform: rotate(360deg); }
+}
+
+@media (hover: hover) {
+    .karta-pogody {
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .karta-pogody:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 7px 16px rgba(35, 80, 65, 0.09);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pogoda-slonce,
+    .pogoda-chmura,
+    .pogoda-deszcz,
+    .pogoda-snieg,
+    .pogoda-mgla,
+    .wiatrak-wirnik {
+        animation: none;
+    }
+
+    .karta-pogody {
+        transition: none;
+    }
+
+    .karta-pogody:hover {
         transform: none;
     }
 }
